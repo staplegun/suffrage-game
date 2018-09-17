@@ -1,0 +1,318 @@
+{
+  "game": [
+    {
+      "date": "1878",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "Robert Stout (MP City of Dunedin) introduces the 'Electoral Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "robert-stout-wikimedia-pd.png",
+      "caption": "Robert Stout",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 1st reading, try again",
+      "alertTrigger": 1,
+      "team": "suffrage"
+    },
+    {
+      "date": "1879",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "Robert Stout (MP City of Dunedin) introduces an amended 'Electoral Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "robert-stout-wikimedia-pd.png",
+      "caption": "Robert Stout",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 1st reading, try again",
+      "alertTrigger": 1
+    },
+    {
+      "date": "1879",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 15 September 1879 for the 7th NZ Parliament",
+      "action": "Sorry, you aren't allowed to vote yet, you'll need to try harder"
+    },
+    {
+      "date": "1880",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "James Wallis (MP Auckland West) introduces the 'Women’s Franchise Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "gamePlay": "vote",
+      "alert": "Bill lapses after 1st reading, try again",
+      "alertTrigger": 1
+    },
+    {
+      "date": "1881",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "James Wallis (MP Auckland West) introduces the 'Women’s Franchise Bill' into Parliament again",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 1st reading, try again",
+      "alertTrigger": 1
+    },
+    {
+      "date": "1881",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 9 December 1881 for the 8th NZ Parliament",
+      "action": "Another election, and you still aren't allowed to vote"
+    },
+    {
+      "date": "1882",
+      "title": "Life continues for another year",
+      "color": "PaleGoldenRod",
+      "description": "Maybe gaining suffrage is too hard?"
+    },
+    {
+      "date": "1883",
+      "title": "Life plods on 1883",
+      "color": "PaleGoldenRod",
+      "description": "Looks like everyone has forgotten about suffrage"
+    },
+    {
+      "date": "1884",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 22 June 1884 for the 9th NZ Parliament",
+      "action": "Sorry, you aren't allowed to vote yet, it's starting to look like you never will"
+    },
+    {
+      "date": "1885",
+      "title": "WCTU established",
+      "color": "White",
+      "description": "Anne Ward establishes a New Zealand branch of the (American) 'Women’s Christian Temperance Union' (WCTU)"
+    },
+    {
+      "date": "1886",
+      "title": "WCTU takes on women's suffrage",
+      "color": "White",
+      "description": "The Women’s Christian Temperance Union establishes a legislative section for the suffrage campaign in Christchurch, run by Kate Sheppard",
+      "image": "kate-sheppard-wikimedia-pd.jpg",
+      "caption": "Kate Sheppard",
+      "team": "suffrage"
+    },
+    {
+      "date": "1886",
+      "title": "Liquor industry influence",
+      "color": "OrangeRed",
+      "description": "By linking suffrage and temperance, you have become an enemy of the liquor trade, beware...",
+      "image": "rye-whiskey-wikimedia-cc0.jpg",
+      "caption": "Liquor trade",
+      "team": "statusquo"
+    },
+    {
+      "date": "1887",
+      "title": "Suffrage petition",
+      "color": "Plum",
+      "description": "The WCTU starts a petition for women's suffrage",
+      "action": "Keep pressing the SIGN button to collect signatures",
+      "gamePlay": "sign",
+      "alert": "Petition of 800 signatures presented to Parliament, good luck!",
+      "alertTrigger": 2
+    },
+    {
+      "date": "1887",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "Julius Vogel (MP Christchurch North) introduces the 'Women’s Suffrage Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "julius-vogel-wikimedia-nkcr.jpg",
+      "caption": "Julius Vogel",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 2nd reading, try again",
+      "alertTrigger": 2,
+      "team": "suffrage"
+    },
+    {
+      "date": "1887",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 26 September 1887 for the 10th NZ Parliament",
+      "action": "Sorry, you aren't allowed to vote yet - frailty, thy name is woman"
+    },
+    {
+      "date": "1888",
+      "title": "Suffrage petition",
+      "color": "Plum",
+      "description": "The WCTU starts a petition for women's suffrage",
+      "action": "Keep pressing the SIGN button to collect signatures",
+      "gamePlay": "sign",
+      "alert": "Petition of 350 signatures presented to Parliament, good luck!",
+      "alertTrigger": 1
+    },
+    {
+      "date": "1889",
+      "title": "Life continues for another year",
+      "color": "PaleGoldenRod",
+      "description": "Calm before the storm?"
+    },
+    {
+      "date": "1890",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "Sir John Hall (MP Selwyn) introduces the 'Women’s Franchise Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "john-hall-wikimedia-ccbysa.jpg",
+      "caption": "John Hall",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 1st reading, try again",
+      "alertTrigger": 1,
+      "team": "suffrage"
+    },
+    {
+      "date": "1890",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 5 December 1890 for the 11th NZ Parliament",
+      "action": "Sorry, you aren't allowed to vote yet, surely next time?"
+    },
+    {
+      "date": "1891",
+      "title": "Anti-suffrage petition",
+      "color": "OrangeRed",
+      "description": "Henry Fish (Liberal, City of Dunedin) is pro-liquor and anti-suffrage, however loses credibility for paying his campaigners and collecting fradulent signatures (an 'own goal'?)",
+      "image": "henry-fish-wikimedia-pd.jpg",
+      "caption": "Henry Fish",
+      "team": "statusquo"
+    },
+    {
+      "date": "1891",
+      "title": "Suffrage petition",
+      "color": "Plum",
+      "description": "Margaret Lorimer starts a petition for women's suffrage",
+      "action": "Keep pressing the SIGN button to collect signatures",
+      "gamePlay": "sign",
+      "alert": "Petition of over 9,000 signatures presented to Parliament, good luck!",
+      "alertTrigger": 9
+    },
+    {
+      "date": "1891",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "Sir John Hall (Conservative MP Ellesmere) introduces the 'Female Suffrage Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "john-hall-wikimedia-ccbysa.jpg",
+      "caption": "John Hall",
+      "gamePlay": "vote",
+      "alert": "Bill passes by a majority vote in the House of Representatives (lower house), well done!",
+      "alertTrigger": 3
+    },
+    {
+      "date": "1891",
+      "title": "Parliamentary Act",
+      "color": "LightSalmon",
+      "description": "The 'Female Suffrage Act' is now debated in the Legislative Council (upper house)",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "gamePlay": "vote",
+      "alert": "Defeated in the Legislative Council (upper house) - progress, but no win yet",
+      "alertTrigger": 4
+    },
+    {
+      "date": "1892",
+      "title": "Women’s Franchise League established",
+      "color": "white",
+      "description": "Harriet Morison establishes the 'Women’s Franchise League' in Dunedin, primarily to oppose Dunedin MP Henry Fish",
+      "image": "harriet-morison-nzhistory-atl.jpg",
+      "caption": "Harriet Morison",
+      "team": "suffrage"
+    },
+    {
+      "date": "1892",
+      "title": "Suffrage petition",
+      "color": "Plum",
+        "description": "Margaret Lorimer starts a petition for women's suffrage",
+      "action": "Keep pressing the SIGN button to collect signatures",
+      "image": "margaret-lorimer-atl-23136080.jpg",
+      "caption": "Margaret Lorimer",
+      "gamePlay": "sign",
+      "alert": "Petition of over 19,000 signatures presented to Parliament, good luck!",
+      "alertTrigger": 19,
+      "team": "suffrage"
+    },
+    {
+      "date": "1892",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "John Ballance (Liberal MP Wanganui) introduces the 'Electoral Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "john-ballance-wikimedia-pd.jpg",
+      "caption": "John Ballance",
+      "gamePlay": "vote",
+      "alert": "Bill defeated after 1st reading (from a controversy over an impractical postal vote), try again",
+      "alertTrigger": 1,
+      "team": "suffrage"
+    },
+    {
+      "date": "1893",
+      "title": "New Premier",
+      "color": "OrangeRed",
+      "description": "In April 1893 pro-suffrage Premier John Ballance dies and is succeeded by Richard Seddon - a friend of the liquor trade and who strongly opposes suffrage",
+      "image": "richard-seddon-wikimedia-pd.jpg",
+      "caption": "Richard Seddon",
+      "team": "statusquo"
+    },
+    {
+      "date": "1893",
+      "title": "Suffrage petition",
+      "color": "Plum",
+      "description": "Mary J Carpenter starts a petition for women's suffrage",
+      "action": "Keep pressing the SIGN button to collect signatures",
+      "gamePlay": "sign",
+      "alert": "The 'monster' 300-yard long petition of almost 32,000 signatures (a quarter of all women) presented to Parliament, good luck!",
+      "alertTrigger": 32
+    },
+    {
+      "date": "1893",
+      "title": "Parliamentary Bill",
+      "color": "LightSalmon",
+      "description": "John Hall (MP Ellesmere) introduces the 'Electoral Bill' into Parliament",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "image": "john-hall-wikimedia-ccbysa.jpg",
+      "caption": "John Hall",
+      "gamePlay": "vote",
+      "alert": "Majority vote passes in the House of Representatives (lower house), looking good",
+      "alertTrigger": 3
+    },
+    {
+      "date": "1893",
+      "title": "Battle of the button-holes",
+      "color": "White",
+      "description": "Start lobbying the Legislative Council for the final vote - mass rallies in the streets, telegrams to members, camellias for member's button-holes (white for suffrage, red for anti-suffrage)"
+    },
+    {
+      "date": "1893",
+      "title": "Seddon influences Legislative Council",
+      "color": "OrangeRed",
+      "description": "Premier Richard Seddon tries to manipulate Thomas Kelly's vote, this incenses William Reynolds and Edward Stevens who decide to vote against Seddon (another own goal)",
+      "image": "richard-seddon-wikimedia-pd.jpg",
+      "caption": "Richard Seddon"
+    },
+    {
+      "date": "1893",
+      "title": "Parliamentary Act",
+      "color": "LightSalmon",
+      "description": "The 'Electoral Act' is debated in the Legislative Council (upper house)",
+      "action": "Keep pressing the VOTE button to help it pass",
+      "gamePlay": "vote",
+      "alert": "The Electoral Act is passed by a majority vote (20 to 18) in the Legislative Council (upper house), wow!",
+      "alertTrigger": 5
+    },
+    {
+      "date": "1893",
+      "title": "Royal assent",
+      "color": "White",
+      "description": "Governor Lord Glasgow signs off the new Electoral Act on 19 September 1893 - you can now vote! NZ is the first self-governing nation to grant the vote to all adult women!",
+      "image": "david-boyle-wikimedia-pd.jpg",
+      "caption": "David Boyle, 7th Earl of Glasgow"
+    },
+    {
+      "date": "1893",
+      "title": "General election",
+      "color": "LightGreen",
+      "description": "General election on 28 November 1893 for the 12th NZ Parliament",
+      "action": "Congratulations, two out of every three adult women in NZ vote for the first time ever!"
+    }
+  ]
+}

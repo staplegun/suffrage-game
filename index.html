@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--
+/********************************************************************
+* Copyright (c) 2018, Douglas Campbell
+* Licensed under the MIT License.
+********************************************************************/
+-->
+<html lang="en" class="viewer">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Journey to Suffrage Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    margin-top: 10px;
+    background-color: #B1BBEC;
+    font-size:1.0em;
+    color: #$3C457D;
+    font-family: Raleway, Georgia, "Times New Roman", serif;
+  }
+  a {
+    color: Cyan;
+  }
+  .header {
+    padding: 0.5em;
+    text-align:center;
+  }
+  .play-area {
+    background-color: #536ADE;
+    padding: 1.5em;
+  }
+  .teams {
+    background-color: DarkSlateBlue;
+    padding: 0.5em;
+  }
+  .timeline {
+    background-color: DarkSlateBlue;
+    padding-top: 1.0em;
+  }
+  .card-stack {
+    width: 200px;
+    height: 250px;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 5px;
+    background:#536ADE;
+    border: 30px solid #E6E8F4;
+    text-align:center;
+    padding:10% 0;
+    font-size:1.5em;
+    float: left;
+    background-image: linear-gradient(45deg, transparent 10%, rgba(255,255,255,.5) 50%);
+    background-size: 15px 15px;
+  }
+  .card-current {
+    width: 270px;
+    height: 350px;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 5px;
+    font-size: 1.1em;
+    background-color: #536ADE;
+    float: left;
+  }
+  .year {
+    width: 60px;
+    padding: 2px;
+    margin: 3px;
+    background-color: #B6A2BB;
+    text-align: center;
+    float:left;
+  }
+  .year-current {
+    background-color: LightGreen;
+  }
+  .signMeterTop {
+    width: 120px;
+    height: 96px;
+    padding: 3px;
+    margin: 0px;
+    color: #0A0027;
+    background-color: Plum ;
+  }
+  .signMeter {
+    width: 120px;
+    height: 1px;
+    padding: 0px;
+    margin: 0px;
+    background-color: Plum ;
+  }
+  .signMeterBottom {
+    margin-bottom: 8px;
+  }
+  .voteMeter {
+    width: 110px;
+    height: 30px;
+    padding: 5px;
+    background-color: LightSalmon ;
+  }
+  .voteMeterBottom {
+    margin-bottom: 8px;
+  }
+  .glow {
+    box-shadow:0px 0px 30px 3px gold;
+  }
+  .alert-display {
+    background-color: #ffffff;
+  }
+  .no-close .ui-dialog-titlebar-close {
+    display: none;
+  }
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80738444-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-80738444-3');
+</script>
+</head>
+<body>
+
+  <!-- header -->
+  <div class="header container">
+    <div class="row">
+      <div class="col-sm-10 main-heading">
+        <h2>Journey to Women’s Suffrage Game</h2>
+      </div>
+      <div class="col-sm-2 text-right">
+        <a href="about.html" style="color:Blue; text-decoration: none;">About</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <!-- gameplay area -->
+      <div class="play-area col-sm-12 col-md-10 col-lg-11">
+
+        <div class="row">
+
+          <!-- left gameplay column -->
+          <div class="col-sm-12 col-md-7">
+
+            <!-- card gameplay -->
+            <div>
+              <div id="cardStack" class="card-stack">
+                <strong>Chance<br />Cards</strong>
+              </div>
+              <div id="cardCurrent" class="card-current">
+              </div>
+              <div id="cardCounter" style="font-size:0.6em;">
+              </div>
+            </div>
+
+            <!-- instructions -->
+            <div style="clear:both; padding-top:20px; color:#E6E8F4;">
+              <a href="https://mch.govt.nz/suffrage-125" target="_blank"><img src="Suffrage_symbol_F.png" alt="Suffrage 125 Whakatū Wāhine logo" width="150" align="right" /></a>
+              <p>How to play</p>
+              <ul>
+                <li>Help bring women's suffrage (voting) to New Zealand in the 1800s</li>
+                <li>Play each Chance card and follow its instructions</li>
+                <li>You can change the world in under five minutes</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- right gameplay column -->
+          <div class="col-sm-12 col-md-5">
+
+          <!-- sign gameplay -->
+          <div style="padding:15px; background-image:url('suffrage-petition-1893-detail-wikimedia-pd.jpg'); background-size:100%; background-position: center; background-repeat: no-repeat;">
+            <div class="row">
+              <div class="col-lg-5">
+                <h4 id="petitionsHeading">Petitions</h4>
+                <div id="signMeter-top" class="signMeterTop">NZ women's population</div>
+                <div id="signMeter-32" class="signMeter"></div>
+                <div id="signMeter-31" class="signMeter"></div>
+                <div id="signMeter-30" class="signMeter"></div>
+                <div id="signMeter-29" class="signMeter"></div>
+                <div id="signMeter-28" class="signMeter"></div>
+                <div id="signMeter-27" class="signMeter"></div>
+                <div id="signMeter-26" class="signMeter"></div>
+                <div id="signMeter-25" class="signMeter"></div>
+                <div id="signMeter-24" class="signMeter"></div>
+                <div id="signMeter-23" class="signMeter"></div>
+                <div id="signMeter-22" class="signMeter"></div>
+                <div id="signMeter-21" class="signMeter"></div>
+                <div id="signMeter-20" class="signMeter"></div>
+                <div id="signMeter-19" class="signMeter"></div>
+                <div id="signMeter-18" class="signMeter"></div>
+                <div id="signMeter-17" class="signMeter"></div>
+                <div id="signMeter-16" class="signMeter"></div>
+                <div id="signMeter-15" class="signMeter"></div>
+                <div id="signMeter-14" class="signMeter"></div>
+                <div id="signMeter-13" class="signMeter"></div>
+                <div id="signMeter-12" class="signMeter"></div>
+                <div id="signMeter-11" class="signMeter"></div>
+                <div id="signMeter-10" class="signMeter"></div>
+                <div id="signMeter-9" class="signMeter"></div>
+                <div id="signMeter-8" class="signMeter"></div>
+                <div id="signMeter-7" class="signMeter"></div>
+                <div id="signMeter-6" class="signMeter"></div>
+                <div id="signMeter-5" class="signMeter"></div>
+                <div id="signMeter-4" class="signMeter"></div>
+                <div id="signMeter-3" class="signMeter"></div>
+                <div id="signMeter-2" class="signMeter"></div>
+                <div id="signMeter-1" class="signMeter"></div>
+                <div id="signMeter-bottom" class="signMeterBottom"></div>
+                <button id="signButton" type="button" class="btn">SIGN</button>
+              </div>
+              <div id="petitionsVisualise" class="col-lg-7"></div>
+            </div>
+          </div>
+          <!-- vote gameplay -->
+          <div style="margin-top:20px; padding:15px; background-image:url('parliament-buildings-1859-atl-22494909.jpg'); background-size:100%; background-repeat: no-repeat;">
+            <div class="row">
+              <div class="col-lg-5">
+                <h4 id="parliamentHeading">Parliament</h4>
+                <div id="voteMeter-5" class="voteMeter">Royal assent</div>
+                <div id="voteMeter-4" class="voteMeter">Upper house</div>
+                <div id="voteMeter-3" class="voteMeter">3rd reading</div>
+                <div id="voteMeter-2" class="voteMeter">2nd reading</div>
+                <div id="voteMeter-1" class="voteMeter">1st reading</div>
+                <div id="voteMeter-bottom" class="voteMeterBottom"></div>
+                <button id="voteButton" type="button" class="btn">VOTE</button>
+              </div>
+              <div id="parliamentVisualise" class="col-lg-7"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- timeline  -->
+    <div class="timeline col-sm-12 col-md-2 col-lg-1">
+      <div id="year-1878" class="year year-current">1878</div>
+      <div id="year-1879" class="year">1879</div>
+      <div id="year-1880" class="year"><strong>1880</strong></div>
+      <div id="year-1881" class="year">1881</div>
+      <div id="year-1882" class="year">1882</div>
+      <div id="year-1883" class="year">1883</div>
+      <div id="year-1884" class="year">1884</div>
+      <div id="year-1885" class="year">1885</div>
+      <div id="year-1886" class="year">1886</div>
+      <div id="year-1887" class="year">1887</div>
+      <div id="year-1888" class="year">1888</div>
+      <div id="year-1889" class="year">1889</div>
+      <div id="year-1890" class="year"><strong>1890</strong></div>
+      <div id="year-1891" class="year">1891</div>
+      <div id="year-1892" class="year">1892</div>
+      <div id="year-1893" class="year">1893</div>
+    </div>
+
+  </div>
+
+  <!-- teams -->
+  <div class="teams row">
+    <div id="team-suffrage" class="col-6" style="background:Snow; text-align:left; padding:10px; height:135px; background-image:url('flower-nada-alyafaei-42026-ccby.png'); background-size:100px; background-position: right; background-repeat: no-repeat;">
+      <h4>Team Suffrage</h4>
+    </div>
+    <div id="team-statusquo" class="col-6" style="background:OrangeRed; text-align:right; padding:10px; height:135px; background-image:url('flower-nada-alyafaei-42026-ccby.png'); background-size:100px; background-position: left; background-repeat: no-repeat;">
+      <h4>Team Status Quo</h4>
+    </div>
+  </div>
+
+  <!-- popup update modal -->
+  <div id="alert" title="Update" class="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update</h5>
+        </div>
+        <div id="alertMessage" class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var gameData
+var currentData
+var currentCard = 0
+var voteCount = 0
+var signCount = 0
+var playingStartedAt = void 0
+
+// main entry - set up the environment
+document.addEventListener('DOMContentLoaded', function () {
+  playingStartedAt = performance.now()
+  // load specified card
+  currentCard = _getParameterByName('card')
+  if (currentCard == null || currentCard == '') {
+    currentCard = 0
+  }
+  console.log("initial card", currentCard)
+  $.getJSON( "game.json", function(data) {
+    gameData = data.game
+    enableCardPlay()
+  })
+})
+
+// load and display the next game card
+function nextCard() {
+  currentCard++
+  // log as new page in GA
+  gtag("event", "play_card", {"event_category": "Gameplay", "event_label": "card " + currentCard})
+  if (currentCard > gameData.length) {
+    gameOver()
+    return
+  }
+  console.log("to next card", currentCard)
+  currentData = gameData[currentCard-1]
+  console.log("data",currentData)
+  displayCard(currentData)
+}
+
+// display the supplied card
+function displayCard(cardData) {
+  console.log("Play card",cardData.title)
+
+  // update year
+  $('.year').css('background-color','#B6A2BB')
+  $('#year-'+cardData.date).css('background-color','LightGreen')
+
+  // display card
+  let html = '<h4>' + cardData.title + '</h4><p>'
+  if (cardData.image != null) {
+    html += '<img src="' + cardData.image + '" alt="' + cardData.caption + '" width="60" style="float:right; margin:5px;" />'
+  }
+  html += cardData.description + '</p>'
+  if (cardData.action != null) {
+    html += '<p id="cardAction" style="background-color:gold; padding:10px; border-radius: 7px;">' + cardData.action + '</p>'
+  }
+  $('#cardCurrent').html(html)
+  $('#cardCurrent').css('background-color',cardData.color)
+
+  // activate appropriate area of play
+  if (cardData.gamePlay === 'vote') {
+    enableVotePlay()
+    disableSignPlay()
+    disableCardPlay()
+    // add to quantity visualisation
+    let html = '<img src="act-cover-wikimedia-pd.jpg" alt="Bill" height="50" style="margin:6px; vertical-align:top;" />'
+    $('#parliamentVisualise').append(html)
+  } else if (cardData.gamePlay === 'sign') {
+    enableSignPlay()
+    disableVotePlay()
+    disableCardPlay()
+    // add to quantity visualisation
+    let html = '<img src="suffrage-petition-1893-wikimedia-pd.jpg" alt="Petition" height="50" style="margin:6px; vertical-align:top;" />'
+    $('#petitionsVisualise').append(html)
+  } else {
+    // no game play specified, so must be 'play next card'
+    enableCardPlay()
+    disableSignPlay()
+    disableVotePlay()
+  }
+
+  // debug
+  //$('#cardCounter').html(currentCard)
+}
+
+function gameOver() {
+  let playingTimeSecs = (performance.now() - playingStartedAt) / 1000
+  gtag("event", "game_over", {"event_category": "Gameplay", "event_label": "gameover", "value": playingTimeSecs})
+  $('#cardStack').html('')
+  $('#cardStack').css('background-color','DarkSlateBlue')
+  $('#cardStack').css('border',0)
+
+  let html = '<p style="font-size:1.5em;">The End</p>'
+  html += '<ul>'
+  html += '<li>16 years</li>'
+  html += '<li>60,000+ signatures</li>'
+  html += '<li>9 Parliamentary bills</li>'
+  html += '<li>2 own goals!</li>'
+  html += '</ul>'
+  html += '<p>Learn more at <a href="https://mch.govt.nz/suffrage-125" style="color:Blue;">Suffrage 125 Whakatū Wāhine</a></p>'
+  $('#cardCurrent').html(html)
+  $('#cardCurrent').css('background-color','Lavender')
+}
+
+// functions to enable/disable each area of gameplay
+
+function enableCardPlay() {
+  console.log('Activating card gameplay')
+  $('#cardStack').addClass('glow')
+  $('#cardStack').on('click', function () { handleCardButton() })
+}
+
+function disableCardPlay() {
+  console.log('Disabling card gameplay')
+  $('#cardStack').removeClass('glow')
+  $('#cardStack').off("click");
+}
+
+function enableVotePlay() {
+  console.log('Activating vote gameplay')
+  voteCount = 0
+  $('.voteMeter').css('background-color','LightSalmon')
+  $('#voteButton').addClass('btn-success')
+  $('#voteButton').addClass('glow')
+  $('#voteButton').on('click', function () { handleVoteButton() })
+}
+
+function disableVotePlay() {
+  console.log('Disabling vote gameplay')
+  $('#voteButton').removeClass('glow')
+  $('#voteButton').removeClass('btn-success')
+  $('.voteMeter').css('background-color','LightSalmon')
+  $('voteButton').off('click');
+}
+
+function enableSignPlay() {
+  console.log('Activating sign gameplay')
+  signCount = 0
+  $('#signButton').addClass('glow')
+  $('#signButton').addClass('btn-success')
+  $('.signMeter').css('background-color','Plum')
+  $('#signButton').on('click', function () { handleSignButton() })
+}
+
+function disableSignPlay() {
+  console.log('Disabling sign gameplay')
+  $('#signButton').removeClass('glow')
+  $('#signButton').removeClass('btn-success')
+  $('.signMeter').css('background-color','Plum')
+  $('#signButton').off('click');
+}
+
+// functions to handle pressing of active gameplay buttons
+
+function handleCardButton() {
+  $('#cardStack').off('click');
+  // first move current image to team area if specified
+  if (currentData != null && currentData.team != null) {
+    let html = '<img src="' + currentData.image + '" alt="' + currentData.caption + '" height="70" style="display:inline-block; margin:3px;" />'
+    $('#team-'+currentData.team).append(html)
+  }
+  nextCard()
+}
+
+function handleSignButton() {
+  $('#signButton').off('click');
+  signCount++
+  console.log("signatures: " + signCount)
+  $('#signMeter-'+signCount).css('background-color','Red')
+  if (signCount > currentData.alertTrigger) {
+    $('#cardAction').remove()
+    $('#alertMessage').html(currentData.alert)
+    // turn off click to close (user is already clicking a lot)
+    $('#alert').modal({backdrop:false})
+    disableSignPlay()
+    enableCardPlay()
+  } else {
+    // re-enable button for next level
+    $('#signButton').on('click', function () { handleSignButton() })
+  }
+}
+
+function handleVoteButton() {
+  $('#voteButton').off('click');
+  voteCount++
+  $('#voteMeter-'+voteCount).css('background-color','Red')
+  console.log("votes: " + voteCount)
+  if (voteCount > currentData.alertTrigger) {
+    $('#cardAction').remove()
+    $('#alertMessage').html(currentData.alert)
+    // turn off click to close (user is already clicking a lot)
+    $('#alert').modal({backdrop:false})
+    disableVotePlay()
+    enableCardPlay()
+  } else {
+    // re-enable button for next level
+    $('#voteButton').on('click', function () { handleVoteButton() })
+  }
+}
+
+// extract querystring parameter from page URL
+function _getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+</script>
+
+</body>
+</html>
